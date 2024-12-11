@@ -1,0 +1,176 @@
+/* Basic Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Body Styling */
+body {
+    font-family: 'Arial', sans-serif;
+    background: linear-gradient(135deg, #4e73df, #1f3352); /* Deep blue gradient */
+    color: #fff;
+    height: 100vh;
+    display: flex;
+    overflow-x: hidden; /* Prevent horizontal scrolling */
+}
+
+/* Sidebar */
+.sidebar {
+    position: fixed;
+    width: 250px;
+    height: 100vh;
+    color: #ecf0f1;
+    padding-top: 20px;
+    background-color: #34495e;
+    left: 0; /* Sidebar always visible */
+    transition: left 0.3s ease-in-out; /* Smooth slide in/out */
+    z-index: 100; /* Ensure sidebar is above content */
+}
+
+/* Sidebar Menu */
+.sidebar-menu {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.sidebar-menu li {
+    margin: 20px 0;
+}
+
+.sidebar-menu a {
+    text-decoration: none;
+    color: #ecf0f1;
+    padding: 10px 15px;
+    display: block;
+    transition: background 0.3s ease;
+}
+
+.sidebar-menu a:hover, .sidebar-menu a.active {
+    background-color: #2c3e50;
+    border-left: 5px solid #3498db;
+}
+
+/* Content Area */
+.content {
+    margin-left: 250px; /* Leave space for sidebar */
+    padding: 30px;
+    width: calc(100% - 250px);
+    transition: margin-left 0.3s ease, width 0.3s ease; /* Smooth transition for content */
+    box-sizing: border-box;
+}
+
+/* Table Container */
+.table-container {
+    background-color: #2c3e50;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    margin-bottom: 30px;
+}
+
+.table-controls {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 15px;
+}
+
+#searchBar {
+    padding: 10px;
+    font-size: 14px;
+    border-radius: 5px;
+    border: none;
+    outline: none;
+    width: 40%;
+}
+
+#searchBar:focus {
+    box-shadow: 0 0 5px #3498db;
+    border: 1px solid #3498db;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    border-radius: 8px;
+}
+
+table th, table td {
+    padding: 12px;
+    text-align: left;
+    border: 1px solid #ddd;
+}
+
+table th {
+    background-color: #3b474b;
+    color: #fff;
+}
+
+table td {
+    background-color: #444;
+}
+
+tbody tr {
+    opacity: 0;
+    transform: translateY(20px);
+    animation: fade-in 0.5s ease-in-out forwards;
+}
+
+@keyframes fade-in {
+    0% { opacity: 0; transform: translateY(20px); }
+    100% { opacity: 1; transform: translateY(0); }
+}
+
+/* Button Styles */
+.manage_btn, .edit_btn, .delete_btn, .add-button {
+    padding: 10px 15px;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 14px;
+    transition: background-color 0.3s ease;
+}
+
+.add-button {
+    background-color: green;
+}
+
+.manage_btn {
+    background-color: green;
+}
+
+.edit_btn {
+    background-color: #f39c12;
+}
+
+.delete_btn {
+    background-color: red;
+}
+
+button:hover {
+    opacity: 0.9;
+}
+
+/* Mobile / Tablet Responsive Design */
+@media (max-width: 812px) { /* For iPhone X portrait mode */
+    .sidebar {
+        left: 0; /* Sidebar always visible */
+    }
+
+    .content {
+        margin-left: 250px; /* Ensure content shifts for sidebar */
+    }
+}
+
+@media (max-width: 375px) { /* Targeting smaller devices (portrait iPhone X) */
+    .sidebar {
+        width: 200px; /* Adjust sidebar width for smaller screens */
+    }
+    
+    .content {
+        padding: 15px; /* Adjust content padding for small screens */
+    }
+}

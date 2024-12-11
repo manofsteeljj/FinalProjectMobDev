@@ -1,0 +1,204 @@
+/* Basic Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  
+  /* Body Styling */
+  body {
+    font-family: 'Arial', sans-serif;
+    background: linear-gradient(135deg, #4e73df, #1f3352);
+    color: #fff;
+    height: 100vh;
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+  }
+  
+  /* Sidebar */
+  .sidebar {
+    position: fixed;
+    width: 250px;
+    height: 100vh;
+    color: #ecf0f1;
+    padding-top: 20px;
+    background-color: #34495e;
+  }
+  
+  .sidebar .logo-container {
+    text-align: center;
+    margin-bottom: 20px;
+  }
+  
+  .sidebar .logo {
+    width: 100px;
+    height: auto;
+  }
+  
+  .sidebar h1 {
+    font-size: 20px;
+    margin: 10px 0 0;
+  }
+  
+  .sidebar-menu {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+  
+  .sidebar-menu li {
+    margin: 20px 0;
+  }
+  
+  .sidebar-menu a {
+    text-decoration: none;
+    color: #ecf0f1;
+    padding: 10px 15px;
+    display: block;
+    transition: background 0.3s ease;
+  }
+  
+  .sidebar-menu a:hover,
+  .sidebar-menu a.active {
+    background-color: #2c3e50;
+    border-left: 5px solid #3498db;
+  }
+  
+  /* Main Content */
+  .content {
+    margin-left: 270px;
+    padding: 30px;
+    width: calc(100% - 270px);
+    box-sizing: border-box;
+  }
+  
+  h2 {
+    font-size: 2rem;
+    color: #fff;
+    font-weight: 600;
+    margin-bottom: 20px;
+  }
+  
+  .form-container {
+    background-color: #2c3e50;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  }
+  
+  form {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  form label {
+    margin: 10px 0 5px;
+  }
+  
+  form input,
+  form select {
+    padding: 10px;
+    margin-bottom: 15px;
+    border-radius: 5px;
+    border: 1px solid #ddd;
+  }
+  
+  form button {
+    padding: 10px 15px;
+    background-color: green;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  
+  form button:hover {
+    background-color: darkgreen;
+  }
+  
+  /* Responsive Design for iPhone X and smaller devices */
+  @media (max-width: 768px) {
+    /* Reduce the sidebar width */
+    .sidebar {
+      width: 200px;
+    }
+  
+    .content {
+      margin-left: 220px; /* Adjust the content width */
+      padding: 15px;
+    }
+  
+    /* Adjust form container to be more compact */
+    .form-container {
+      padding: 15px;
+    }
+  
+    h2 {
+      font-size: 1.5rem;
+    }
+  
+    form input,
+    form select {
+      padding: 8px;
+    }
+  
+    form button {
+      padding: 8px 12px;
+    }
+  
+    /* Adjust sidebar for small screens */
+    .sidebar-menu a {
+      padding: 8px 12px;
+    }
+  }
+  
+  /* Adjust for iPhone X (375px width) */
+  @media (max-width: 375px) {
+    /* Make the sidebar collapsible (optional) */
+    .sidebar {
+      position: relative;
+      width: 100%;
+      height: auto;
+    }
+  
+    .sidebar-menu {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+    }
+  
+    .content {
+      margin-left: 0;
+      width: 100%;
+      padding: 10px;
+    }
+  
+    .form-container {
+      padding: 10px;
+    }
+  
+    /* Adjust headings and form elements */
+    h2 {
+      font-size: 1.2rem;
+    }
+  
+    form input,
+    form select {
+      font-size: 14px;
+      padding: 6px;
+    }
+  
+    form button {
+      padding: 8px 10px;
+      font-size: 14px;
+    }
+  
+    /* Make sidebar items stack vertically */
+    .sidebar-menu a {
+      padding: 8px 10px;
+      font-size: 14px;
+    }
+  }
+  
