@@ -33,27 +33,27 @@ const EditRoom = () => {
   }, [id]);
 
   // Handle form submission to update room
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    
-    axios.post('http://192.168.1.21/finalprojectv2/update_roomjs.php', {
-      id: room.id,
-      room_number: room.room_number,
-      room_type: room.room_type,
-      total_slots: room.total_slots,
-      remaining_slots: room.remaining_slots
-    })
-    .then((response) => {
-      if (response.data.status === 'success') {
-        navigate('/room_manage'); // Redirect to room management page
-      } else {
-        setError(response.data.message || 'Error updating room');
-      }
-    })
-    .catch((error) => {
-      setError('An unexpected error occurred.');
-    });
-  };
+const handleSubmit = (e) => {
+  e.preventDefault();
+  
+  axios.post('http://192.168.1.21/finalprojectv2/update_roomjs.php', {
+    id: id, // Pass the id parameter from the URL
+    room_number: room.room_number,
+    room_type: room.room_type,
+    total_slots: room.total_slots,
+    remaining_slots: room.remaining_slots
+  })
+  .then((response) => {
+    if (response.data.status === 'success') {
+      navigate('/room_manage'); // Redirect to room management page
+    } else {
+      setError(response.data.message || 'Error updating room');
+    }
+  })
+  .catch((error) => {
+    setError('An unexpected error occurred.');
+  });
+};
 
   const handleChange = (e) => {
     setRoom({

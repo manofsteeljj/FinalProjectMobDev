@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
+
 import './AddRoom.css';
 
 const ManageNewTenant = () => {
@@ -10,18 +11,37 @@ const ManageNewTenant = () => {
 
   // Fetch tenants from the backend using Axios
   useEffect(() => {
-    axios.get('http://192.168.1.21/finalprojectv2/get_tenantsjs.php')
-      .then((response) => {
-        if (response.data.status === 'success') {
-          setTenants(response.data.tenants);  // Assuming the response contains the tenants
+    if (!localStorage.getItem("user_id")) {
+      navigate("/login");
+    }
+  
+    fetch("http://192.168.1.21/finalprojectv2/get_tenantsjs.php")
+      .then((response) => response.json())
+      .then((data) => {
+        console.log("Data fetched from API:", data);
+        if (data.status === 'success') {
+          setTenants(data.tenants || []);
         } else {
-          alert('Failed to fetch tenants');
+          console.error("Error fetching rooms: ", data.message);
         }
       })
-      .catch((error) => {
-        console.error('Error fetching tenants:', error);
-      });
-  }, []);
+      .catch((error) => console.error("Error fetching rooms: ", error));
+
+
+
+
+   // axios.get('http://192.168.1.21/finalprojectv2/get_tenantsjs.php')
+  //    .then((response) => {
+  //      if (response.data.status === 'success') {
+   //       setTenants(response.data.tenants);  // Assuming the response contains the tenants
+ //       } else {
+   //       alert('Failed to fetch tenants');
+   //     }
+  //    })
+  //    .catch((error) => {
+   //     console.error('Error fetching tenants:', error);
+  //    });
+  }, [navigate]);
 
   const handleSearch = (event) => {
     setSearchTerm(event.target.value);
@@ -38,7 +58,7 @@ const ManageNewTenant = () => {
 
   const handleDeleteTenant = (id) => {
     if (window.confirm("Are you sure you want to delete this tenant?")) {
-      axios.delete(`http://your-server-url/delete_tenant.php?id=${id}`)
+      axios.delete(`http://192.168.1.21/finalprojectv2/delete_tenantjs.php?id=${id}`)
         .then((response) => {
           if (response.data.status === 'success') {
             setTenants(tenants.filter((tenant) => tenant.id !== id));
@@ -52,15 +72,14 @@ const ManageNewTenant = () => {
 
   return (
     <div className="content">
-      <div className="sidebar">
+     <div className={`sidebar`}>
         <div className="logo-container">
-          <img src="images/Dorm.png" alt="Dormitory Logo" className="logo" />
+          <img src="./img/Dorm.png" alt="Dormitory Logo" className="logo" />
           <h1>Dorm Management</h1>
         </div>
         <ul className="sidebar-menu">
-          <li><button onClick={goToDashboard}>Manage Rooms</button></li>
-          <li><a href="/add_room" className="active">Edit Room</a></li>
-          <li><a href="/manage_new_tenant">Manage New Tenant</a></li>
+          <li><a href="/dashboard" >Manage Rooms</a></li>
+          <li><a href="/manage_new_tenant" className="active">Manage New Tenant</a></li>
           <li><a href="/manage_tenants">Manage Tenants</a></li>
           <li><a href="/manage_facilities">Manage Facilities</a></li>
           <li><a href="/logout">Logout</a></li>
@@ -105,7 +124,7 @@ const ManageNewTenant = () => {
                     </button>
                     <button
                       className="edit_btn"
-                      onClick={() => navigate(`/edit_tenant?id=${tenant.id}`)}
+                      onClick={() => navigate(`/edit_tenant/${tenant.id}`)}
                     >
                       Edit
                     </button>

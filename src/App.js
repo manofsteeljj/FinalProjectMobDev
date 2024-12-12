@@ -5,24 +5,30 @@ import Dashboard from './pages/Dashboard';  // Correct path to Dashboard
 import AddRoom from "./pages/AddRoom";
 import RoomManage from './pages/RoomManage';
 import EditRoom from './pages/EditRoom';
-import ManageNewTenant from "./pages/ManageNewTenant"
+import ManageNewTenant from "./pages/ManageNewTenant";
 import AssignTenant from './pages/AssignTenant';
 import AddTenant from './pages/AddTenant';
 import EditTenant from './pages/EditTenant';
+import ManageTenant from './pages/ManageTenant'
+import ManageFacility from './pages/ManageFacility.js';
 
 function App() {
   return (
     <Router>
       <Routes>
         <Route path="/login" element={<Login />} />
+        <Route path="/logout" element={<Login />} />
         <Route path="/dashboard" element={<Dashboard />} />
         <Route path="/add_room" element={<AddRoom />} />
         <Route path="/manage_room" element={<RoomManage />} />
-        <Route path='/edit_room' element={<EditRoom/>} />
-        <Route path='/manage_new_tenant' element={<ManageNewTenant/>} />
-        <Route path='/assign_tenant' element={<AssignTenant/>} />
-        <Route path='/add_tenant' element={<AddTenant/>} />
-        <Route path="/edit-tenant/:id" element={<EditTenant />} />
+        <Route path="/edit_room" element={<EditRoom />} />
+        <Route path="/manage_new_tenant" element={<ManageNewTenant />} />
+        <Route path="/manage_facilities" element={<ManageFacility />} />
+        <Route path="/manage_tenants" element={<ManageTenant />} />
+        <Route path="/assign_tenant" element={<AssignTenant />} />
+        <Route path="/add_tenant" element={<AddTenant />} />
+        {/* Use dynamic routing for edit_tenant */}
+        <Route path="/edit_tenant/:id" element={<EditTenant />} />
         <Route path="/" element={<Login />} />
       </Routes>
     </Router>
