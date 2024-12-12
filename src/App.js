@@ -11,24 +11,31 @@ import AddTenant from './pages/AddTenant';
 import EditTenant from './pages/EditTenant';
 import ManageTenant from './pages/ManageTenant'
 import ManageFacility from './pages/ManageFacility.js';
+import AddFacility from './pages/AddFacility';
+import EditFacility from './pages/EditFacility';
+import Register from './pages/Register';
 
 function App() {
   return (
     <Router>
       <Routes>
         <Route path="/login" element={<Login />} />
+        <Route path="/register" element={<Register />} />
         <Route path="/logout" element={<Login />} />
         <Route path="/dashboard" element={<Dashboard />} />
         <Route path="/add_room" element={<AddRoom />} />
         <Route path="/manage_room" element={<RoomManage />} />
         <Route path="/edit_room" element={<EditRoom />} />
         <Route path="/manage_new_tenant" element={<ManageNewTenant />} />
+        <Route path="/add_new_facility" element={<AddFacility />} />
         <Route path="/manage_facilities" element={<ManageFacility />} />
         <Route path="/manage_tenants" element={<ManageTenant />} />
         <Route path="/assign_tenant" element={<AssignTenant />} />
         <Route path="/add_tenant" element={<AddTenant />} />
         {/* Use dynamic routing for edit_tenant */}
         <Route path="/edit_tenant/:id" element={<EditTenant />} />
+        <Route path="/edit_room/:id" element={<EditRoom />} />
+        <Route path="/edit_facility/:id" element={<EditFacility />} />
         <Route path="/" element={<Login />} />
       </Routes>
     </Router>

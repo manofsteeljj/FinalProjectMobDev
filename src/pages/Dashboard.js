@@ -125,7 +125,7 @@ const Dashboard = () => {
                       </button>
                       <button
                         className="edit_btn"
-                        onClick={() => navigate(`/edit_room?id=${room.id}`)}
+                        onClick={() => navigate(`/edit_room/${room.id}`)}
                       >
                         Edit
                       </button>
