@@ -25,7 +25,7 @@ const Register = () => {
     }
 
     try {
-      const response = await axios.post('http://192.168.1.21/finalprojectv2/registerjs.php', formData);
+      const response = await axios.post('http://192.168.1.2/finalprojectv2/registerjs.php', formData);
       if (response.data.status === 'success') {
         setMessage('Admin registered successfully!');
         setTimeout(() => navigate('/login'), 2000); // Redirect after 2 seconds

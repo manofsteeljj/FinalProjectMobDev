@@ -22,7 +22,7 @@ const AddRoom = () => {
     console.log('Sending data:', roomData); // Log the data being sent
 
     try {
-      const response = await axios.post('http://192.168.1.21/finalprojectv2/add_roomjs.php', roomData, {
+      const response = await axios.post('http://192.168.1.2/finalprojectv2/add_roomjs.php', roomData, {
         headers: {
           'Content-Type': 'application/json',
         },

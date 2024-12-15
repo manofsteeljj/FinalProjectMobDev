@@ -17,7 +17,7 @@ const RoomManage = () => {
       navigate("/login");
     }
 
-    fetch(`http://192.168.1.21/finalprojectv2/get_room_details.php?id=${roomId}`)
+    fetch(`http://192.168.1.2/finalprojectv2/get_room_details.php?id=${roomId}`)
       .then((response) => response.json())
       .then((data) => {
         if (data.status === "success") {
@@ -32,7 +32,7 @@ const RoomManage = () => {
 
   const handleCheckoutTenant = (tenantId) => {
     if (window.confirm("Are you sure you want to check out this tenant?")) {
-      fetch(`http://192.168.1.21/finalprojectv2/checkout_tenant.php?id=${tenantId}`, {
+      fetch(`http://192.168.1.2/finalprojectv2/checkout_tenant.php?id=${tenantId}`, {
         method: "DELETE",
       })
         .then((response) => response.json())

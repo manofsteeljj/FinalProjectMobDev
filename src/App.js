@@ -13,7 +13,7 @@ import ManageTenant from './pages/ManageTenant'
 import ManageFacility from './pages/ManageFacility.js';
 import AddFacility from './pages/AddFacility';
 import EditFacility from './pages/EditFacility';
-import Register from './pages/Register';
+import Register from './pages/Register'
 
 function App() {
   return (

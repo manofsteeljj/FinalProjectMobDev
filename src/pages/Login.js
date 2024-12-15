@@ -19,7 +19,7 @@ function Login() {
 
     // Using axios to make a POST request
     axios
-      .post('http://192.168.1.21/finalprojectv2/validate_loginjs.php', {
+      .post('http://192.168.1.2/finalprojectv2/validate_loginjs.php', {
         username,
         password
       })

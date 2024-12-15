@@ -14,7 +14,7 @@ const AssignTenant = ({ tenantId }) => {
 
   useEffect(() => {
     // Fetch available rooms from the API
-    axios.get('http://192.168.1.21/finalprojectv2/get_available_roomsjs.php')
+    axios.get('http://192.168.1.2/finalprojectv2/get_available_roomsjs.php')
       .then((response) => {
         console.log('API Response:', response.data);  // Log the full response
   
@@ -48,7 +48,7 @@ const AssignTenant = ({ tenantId }) => {
     };
 
     // Send POST request to the API to assign the tenant to a room
-    axios.post('http://192.168.1.21/finalprojectv2/assign_tenantjs.php', data)
+    axios.post('http://192.168.1.2/finalprojectv2/assign_tenantjs.php', data)
       .then((response) => {
         if (response.data.status === 'success') {
           setMessage('Tenant successfully assigned!');

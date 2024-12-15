@@ -13,7 +13,7 @@ const ManageFacility = () => {
     // Fetch facilities from the server
     const fetchFacilities = async () => {
         try {
-          const response = await fetch('http://192.168.1.21/finalprojectv2/get_facilities.php');
+          const response = await fetch('http://192.168.1.2/finalprojectv2/get_facilities.php');
           const data = await response.json();
           console.log('API Response:', data);  // Check the API response
       
@@ -40,7 +40,7 @@ const ManageFacility = () => {
   const handleDelete = (id) => {
     if (window.confirm('Are you sure you want to delete this facility?')) {
       // Make a request to delete the facility
-      fetch(`http://192.168.1.21/finalprojectv2/delete_facilityjs.php?id=${id}`, {
+      fetch(`http://192.168.1.2/finalprojectv2/delete_facilityjs.php?id=${id}`, {
         method: 'GET',
       })
         .then((response) => response.json())

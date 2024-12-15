@@ -19,7 +19,7 @@ const AddNewFacility = () => {
     };
 
     try {
-      const response = await fetch('http://192.168.1.21/finalprojectv2/add_facilityjs.php', {
+      const response = await fetch('http://192.168.1.2/finalprojectv2/add_facilityjs.php', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json'

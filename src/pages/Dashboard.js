@@ -16,7 +16,7 @@ const Dashboard = () => {
       navigate("/login");
     }
 
-    fetch("http://192.168.1.21/finalprojectv2/get_rooms.php")
+    fetch("http://192.168.1.2/finalprojectv2/get_rooms.php")
       .then((response) => response.json())
       .then((data) => {
         if (data.status === 'success') {
@@ -34,7 +34,7 @@ const Dashboard = () => {
 
   const handleDeleteRoom = (id) => {
     if (window.confirm("Are you sure you want to delete this room?")) {
-      fetch(`http://192.168.1.21/finalprojectv2/delete_room.php?id=${id}`, {
+      fetch(`http://192.168.1.2/finalprojectv2/delete_room.php?id=${id}`, {
         method: "DELETE",
       })
         .then((response) => response.json())
@@ -72,9 +72,6 @@ const Dashboard = () => {
       <div className="tap-area" onClick={toggleSidebar}></div>
 
       <div className="content">
-        <button onClick={toggleSidebar} className="toggle-sidebar-btn">
-          ☰
-        </button>
         <h2>Manage Rooms</h2>
         <div className="table-container">
           <div className="table-controls">

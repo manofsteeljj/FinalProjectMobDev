@@ -15,7 +15,7 @@ const ManageNewTenant = () => {
       navigate("/login");
     }
   
-    fetch("http://192.168.1.21/finalprojectv2/get_tenantsjs.php")
+    fetch("http://192.168.1.2/finalprojectv2/get_tenantsjs.php")
       .then((response) => response.json())
       .then((data) => {
         console.log("Data fetched from API:", data);
@@ -58,7 +58,7 @@ const ManageNewTenant = () => {
 
   const handleDeleteTenant = (id) => {
     if (window.confirm("Are you sure you want to delete this tenant?")) {
-      axios.delete(`http://192.168.1.21/finalprojectv2/delete_tenantjs.php?id=${id}`)
+      axios.delete(`http://192.168.1.2/finalprojectv2/delete_tenantjs.php?id=${id}`)
         .then((response) => {
           if (response.data.status === 'success') {
             setTenants(tenants.filter((tenant) => tenant.id !== id));

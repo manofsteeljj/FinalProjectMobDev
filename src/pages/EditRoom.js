@@ -23,7 +23,7 @@ const EditRoom = () => {
 
       setLoading(true);
       axios
-        .get(`http://192.168.1.21/finalprojectv2/get_room_details.php?id=${id}`)
+        .get(`http://192.168.1.2/finalprojectv2/get_room_details.php?id=${id}`)
         .then((response) => {
           console.log('API Response:', response.data); // Log API response for debugging
           if (response.data.status === 'success') {
@@ -51,7 +51,7 @@ const EditRoom = () => {
   
     try {
       const response = await axios.put(
-        `http://192.168.1.21/finalprojectv2/update_roomjs.php`,
+        `http://192.168.1.2/finalprojectv2/update_roomjs.php`,
         {
           id: id, // Use ID from the URL parameter
           room_number: room.room_number,

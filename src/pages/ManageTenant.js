@@ -10,7 +10,7 @@ const ManageTenant = () => {
   // Fetch tenants from API
   useEffect(() => {
     axios
-      .get('http://192.168.1.21/finalprojectv2/get_tenants.php') // Your API endpoint
+      .get('http://192.168.1.2/finalprojectv2/get_tenants.php') // Your API endpoint
       .then((response) => {
         if (response.data.status === 'success') {
           setTenants(response.data.tenants);
@@ -25,7 +25,7 @@ const ManageTenant = () => {
   const handleDeleteTenant = (id) => {
     if (window.confirm('Are you sure you want to delete this tenant?')) {
       axios
-        .delete(`http://192.168.1.21/finalprojectv2/delete_tenantjs.php?id=${id}`)
+        .delete(`http://192.168.1.2/finalprojectv2/delete_tenantjs.php?id=${id}`)
         .then((response) => {
           if (response.data.status === 'success') {
             setTenants(tenants.filter((tenant) => tenant.id !== id));

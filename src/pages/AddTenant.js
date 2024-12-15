@@ -20,7 +20,7 @@ const AddTenant = () => {
     console.log('Submitting data:', data); // Debugging
   
     try {
-      const response = await axios.post('http://192.168.1.21/finalprojectv2/add_tenantjs.php', data);
+      const response = await axios.post('http://192.168.1.2/finalprojectv2/add_tenantjs.php', data);
       console.log('Response:', response); // Debugging
   
       if (response.data.status === 'success') {

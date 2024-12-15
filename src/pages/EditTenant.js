@@ -20,7 +20,7 @@ const EditTenant = () => {
       console.log('Fetching tenant with ID:', id); // Debug log
       setLoading(true);
       axios
-        .get(`http://192.168.1.21/finalprojectv2/get_tenant.php?id=${id}`)
+        .get(`http://192.168.1.2/finalprojectv2/get_tenant.php?id=${id}`)
         .then((response) => {
           if (response.data.status === 'success') {
             setTenant(response.data.tenant);
@@ -45,7 +45,7 @@ const EditTenant = () => {
     console.log('Sending data:', tenant); // Debug log to check tenant data before sending it
 
     try {
-        const response = await axios.put(`http://192.168.1.21/finalprojectv2/update_tenant.php`, {
+        const response = await axios.put(`http://192.168.1.2/finalprojectv2/update_tenant.php`, {
             id: id, // Use ID from the URL parameter
             full_name: tenant.full_name, // Form data
             gender: tenant.gender, // Form data

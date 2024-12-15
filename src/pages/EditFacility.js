@@ -20,7 +20,7 @@ const EditFacility = () => {
       console.log('Fetching facility with ID:', id); // Debug log
       setLoading(true);
       axios
-        .get(`http://192.168.1.21/finalprojectv2/get_facility.php?id=${id}`)
+        .get(`http://192.168.1.2/finalprojectv2/get_facility.php?id=${id}`)
         .then((response) => {
           if (response.data.status === 'success') {
             setFacility(response.data.facility);
@@ -46,7 +46,7 @@ const EditFacility = () => {
 
     try {
       const response = await axios.post(
-        `http://192.168.1.21/finalprojectv2/edit_facilityjs.php?id=${id}`,
+        `http://192.168.1.2/finalprojectv2/edit_facilityjs.php?id=${id}`,
         facility
       );
 
